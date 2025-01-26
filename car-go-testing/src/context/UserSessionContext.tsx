@@ -1,7 +1,7 @@
 "use client";
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Session, User } from '@supabase/supabase-js';
-import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react'
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
 
 interface IUserSessionContext {
