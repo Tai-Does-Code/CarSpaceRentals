@@ -1,5 +1,5 @@
 'use client';
-import { useAuthContext } from '@/context/AuthContext';
+// import { useAuthContext } from '@/context/AuthContext';
 // import { useSupabase } from '@/context/SupabaseContext';
 // import { createClient } from '../app/auth/callback/server';
 // /Users/marcy/Desktop/Car-go-testing/car-go-testing/src/app/auth/callback
@@ -10,10 +10,21 @@ import { BiLogOutCircle } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { IoCarSportSharp, IoChevronDown } from 'react-icons/io5';
 import { logOut } from '@/services/auth.service';
+import { useSupabase } from '../context/SupabaseContext';
 
 export function ProfileMenu() {
+  useEffect (() => {
+    supabase.auth.getUser().then((session) => {
+      console.log(session)
+    });
+  }, [])
+
   const [avatar, setAvatar] = useState('');
-  const { logOut, user } = useAuthContext();
+  const supabase = useSupabase();
+  const user = {email: "test"}
+  // const { data: { user } } = supabase.auth.getUser()
+  // supabase sign in
+  // const { logOut, user } = useAuthContext();
 //   const supabase = createClient();
 
   const handleSignOut = async () => {
@@ -35,6 +46,7 @@ export function ProfileMenu() {
 
 //     loadUserAvatar();
 //   }, [supabase, user]);
+
 
   return (
     <Menu shadow="md" width={200}>

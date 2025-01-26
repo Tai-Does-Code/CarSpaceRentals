@@ -26,3 +26,4 @@ export const useLoginForm = (): UseFormReturnType<ISignupFormDetails> => {
     return form;
 
 }
+

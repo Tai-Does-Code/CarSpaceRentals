@@ -1,3 +1,5 @@
+import { AuthError, AuthResponse, AuthTokenResponse, OAuthResponse, Session, User } from "@supabase/supabase-js";
+
 export interface ISignupFormDetails{
   email: string;
   password: string;
@@ -138,23 +140,23 @@ export interface ISignupFormDetails{
 //   longitude?: number;
 // }
 
-// export interface IAuthContext {
-//   session: Session | null;
-//   user?: User;
-//   logInWithEmailPassword: (
-//     email: string,
-//     password: string
-//   ) => Promise<AuthTokenResponse>;
-//   signupWithEmailPassword: (
-//     email: string,
-//     password: string,
-//     userDetails?: any
-//   ) => Promise<AuthResponse>;
-//   logOut: () => Promise<{
-//     error: AuthError | null;
-//   }>;
-//   signInWithGoogle: () => Promise<OAuthResponse>;
-// }
+export interface IAuthContext {
+  session: Session | null;
+  user?: User;
+  logInWithEmailPassword: (
+    email: string,
+    password: string
+  ) => Promise<AuthTokenResponse>;
+  signupWithEmailPassword: (
+    email: string,
+    password: string,
+    userDetails?: any
+  ) => Promise<AuthResponse>;
+  logOut: () => Promise<{
+    error: AuthError | null;
+  }>;
+  signInWithGoogle: () => Promise<OAuthResponse>;
+}
 
 // export interface IUserProfileContext {
 //   getProfileDetails: () => Promise<any>;
