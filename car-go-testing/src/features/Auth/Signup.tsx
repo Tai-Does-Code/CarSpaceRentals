@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {GoogleButton} from './GoogleButton';
 import classes from './Style.module.css';

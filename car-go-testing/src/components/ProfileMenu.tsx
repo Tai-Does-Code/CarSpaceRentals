@@ -1,6 +1,8 @@
 'use client';
 import { useAuthContext } from '@/context/AuthContext';
-import { useSupabase } from '@/context/SupabaseContext';
+// import { useSupabase } from '@/context/SupabaseContext';
+// import { createClient } from '../app/auth/callback/server';
+// /Users/marcy/Desktop/Car-go-testing/car-go-testing/src/app/auth/callback
 import { Avatar, Flex, Menu, Text, UnstyledButton } from '@mantine/core';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -12,27 +14,27 @@ import { logOut } from '@/services/auth.service';
 export function ProfileMenu() {
   const [avatar, setAvatar] = useState('');
   const { logOut, user } = useAuthContext();
-  const supabase = useSupabase();
+//   const supabase = createClient();
 
   const handleSignOut = async () => {
     await logOut();
   };
 
-  useEffect(() => {
-    const loadUserAvatar = async () => {
-      if (user) {
-        const { data } = await supabase
-          .from('users')
-          .select('avatar')
-          .eq('id', user.id)
-          .single();
+//   useEffect(() => {
+//     const loadUserAvatar = async () => {
+//       if (user) {
+//         const { data } = await supabase
+//           .from('users')
+//           .select('avatar')
+//           .eq('id', user.id)
+//           .single();
 
-        setAvatar(data?.avatar || '');
-      }
-    };
+//         setAvatar(data?.avatar || '');
+//       }
+//     };
 
-    loadUserAvatar();
-  }, [supabase, user]);
+//     loadUserAvatar();
+//   }, [supabase, user]);
 
   return (
     <Menu shadow="md" width={200}>

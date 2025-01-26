@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {GoogleButton} from './GoogleButton';
 import classes from './Style.module.css';
@@ -15,7 +16,7 @@ export function Login(props: PaperProps){
     const [notRegistered, setNotRegistered] = useState(false);
     const [notVerified, setNotVerified] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-    const {push} = userRouter();
+    const {push} = useRouter();
 
     const form = useLoginForm();
 
@@ -117,7 +118,7 @@ export function Login(props: PaperProps){
         </Box>
     )
 }
-function userRouter(): { push: any; } {
-    throw new Error("Function not implemented.");
-}
+// function userRouter(): { push: any; } {
+//     throw new Error("Function not implemented.");
+// }
 
